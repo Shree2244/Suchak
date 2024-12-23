@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="left-panel">
+    <h2>Upload your PDF here</h2>
+    <!-- Form to upload PDF -->
+    <form method="post" enctype="multipart/form-data">
+        <!-- FastAPI doesn't use csrf_token, so you can remove it -->
+        <input type="file" accept="application/pdf" name="pdf_file" id="pdfUpload" />
+    </form>
+    <div id="pdfContainer" class="pdf-placeholder">
+        <canvas id="pdfViewer" style="aspect-ratio: 1 / 0.5;"></canvas>
+    </div>
+</div>
+<div class="right-panel">
+    <h2>Extracted Information</h2>
+    <div id="loadingMessage" style="display: none;">
+        <!-- Use FastAPI's url_for to reference static files -->
+        <img src="{{ url_for('static', path='images/loading2.gif') }}" alt="Loading..." width="50" height="50"/>
+    </div>
+    <form>
+        <label for="courtName">Court Name:</label>
+        <select id="courtNameDropdown" name="courtNameDropdown" class="dropdown" onchange="updateInput('courtNameDropdown', 'courtName')"></select>
+        <input type="text" id="courtName" name="courtName" class="fields" />
+
+        <label for="act">Act:</label>
+        <select id="actDropdown" name="actDropdown" class="dropdown" onchange="updateInput('actDropdown', 'act')"></select>
+        <input type="text" id="act" name="act" class="fields" />
+
+        <label for="personName">Person Name:</label>
+        <select id="personNameDropdown" name="personNameDropdown" class="dropdown" onchange="updateInput('personNameDropdown', 'personName')"></select>
+        <input type="text" id="personName" name="personName" class="fields" />
+
+        <label for="orderNo">Order Number:</label>
+        <select id="orderNoDropdown" name="orderNoDropdown" class="dropdown" onchange="updateInput('orderNoDropdown', 'orderNo')"></select>
+        <input type="text" id="orderNo" name="orderNo" class="fields" />
+
+        <label for="orderDate">Order Date:</label>
+        <select id="orderDateDropdown" name="orderDateDropdown" class="dropdown" onchange="updateInput('orderDateDropdown', 'orderDate')"></select>
+        <input type="text" id="orderDate" name="orderDate" class="fields" />
+    </form>
+</div>
+{% endblock %}

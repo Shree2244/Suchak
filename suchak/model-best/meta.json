@@ -1,0 +1,76 @@
+{
+  "lang":"mr",
+  "name":"pipeline",
+  "version":"0.0.0",
+  "spacy_version":">=3.7.4,<3.8.0",
+  "description":"",
+  "author":"",
+  "email":"",
+  "url":"",
+  "license":"",
+  "spacy_git_version":"bff8725f4",
+  "vectors":{
+    "width":0,
+    "vectors":0,
+    "keys":0,
+    "name":null,
+    "mode":"default"
+  },
+  "labels":{
+    "tok2vec":[
+
+    ],
+    "ner":[
+      "ACT",
+      "COURT NAME",
+      "ORDER DATE",
+      "ORDER NO",
+      "PERSON NAME"
+    ]
+  },
+  "pipeline":[
+    "tok2vec",
+    "ner"
+  ],
+  "components":[
+    "tok2vec",
+    "ner"
+  ],
+  "disabled":[
+
+  ],
+  "performance":{
+    "ents_f":0.4925373134,
+    "ents_p":0.5871886121,
+    "ents_r":0.4241645244,
+    "ents_per_type":{
+      "COURT NAME":{
+        "p":0.6,
+        "r":0.5142857143,
+        "f":0.5538461538
+      },
+      "ACT":{
+        "p":0.625,
+        "r":0.6140350877,
+        "f":0.6194690265
+      },
+      "PERSON NAME":{
+        "p":0.5398230088,
+        "r":0.3177083333,
+        "f":0.4
+      },
+      "ORDER DATE":{
+        "p":0.5526315789,
+        "r":0.4666666667,
+        "f":0.5060240964
+      },
+      "ORDER NO":{
+        "p":0.8571428571,
+        "r":0.48,
+        "f":0.6153846154
+      }
+    },
+    "tok2vec_loss":282.6545572244,
+    "ner_loss":1505.8508040391
+  }
+}
